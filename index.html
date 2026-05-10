@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thai Hi-Lo Ultimate VIP</title>
+    <title>Thai Hi-Lo Full Version VIP</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #f1c40f; --table-green: #1b5e20; }
@@ -42,6 +42,7 @@
         <div class="box" style="grid-column: span 2" onclick="placeChip(this)"><b>สูง</b><br><small>x1</small></div>
 
         <div class="label-row">แต้มรวม (SUM)</div>
+        <div class="box" onclick="placeChip(this)">3<br><small>x150</small></div>
         <div class="box" onclick="placeChip(this)">4<br><small>x50</small></div>
         <div class="box" onclick="placeChip(this)">5<br><small>x30</small></div>
         <div class="box" onclick="placeChip(this)">6<br><small>x18</small></div>
@@ -54,11 +55,18 @@
         <div class="box" onclick="placeChip(this)">14<br><small>x12</small></div>
         <div class="box" onclick="placeChip(this)">15<br><small>x18</small></div>
         <div class="box" onclick="placeChip(this)">16<br><small>x30</small></div>
+        <div class="box" onclick="placeChip(this)">17<br><small>x50</small></div>
+        <div class="box" style="grid-column: span 2" onclick="placeChip(this)">18<br><small>x150</small></div>
 
         <div class="label-row">โต๊ด (COMBINATIONS)</div>
         <div class="box" onclick="placeChip(this)">1-2</div><div class="box" onclick="placeChip(this)">1-3</div>
         <div class="box" onclick="placeChip(this)">1-4</div><div class="box" onclick="placeChip(this)">1-5</div>
         <div class="box" onclick="placeChip(this)">1-6</div><div class="box" onclick="placeChip(this)">2-3</div>
+        <div class="box" onclick="placeChip(this)">2-4</div><div class="box" onclick="placeChip(this)">2-5</div>
+        <div class="box" onclick="placeChip(this)">2-6</div><div class="box" onclick="placeChip(this)">3-4</div>
+        <div class="box" onclick="placeChip(this)">3-5</div><div class="box" onclick="placeChip(this)">3-6</div>
+        <div class="box" onclick="placeChip(this)">4-5</div><div class="box" onclick="placeChip(this)">4-6</div>
+        <div class="box" style="grid-column: span 4" onclick="placeChip(this)">5-6</div>
 
         <div class="label-row">เต็งเลข</div>
         <div class="box" onclick="placeChip(this)">1</div><div class="box" onclick="placeChip(this)">2</div>
@@ -106,7 +114,7 @@
 
     function shake() {
         const luckyMult = (Math.random() > 0.7) ? Math.floor(Math.random() * 5) + 2 : 1;
-        document.getElementById('multiplier-banner').innerText = luckyMult > 1 ? `🔥 โบนัสคูณพิเศษ x${luckyMult}!` : "";
+        document.getElementById('multiplier-banner').innerText = luckyMult > 1 ? `🔥 โบนัสพิเศษ x${luckyMult}!` : "";
 
         const d = [0,0,0].map(() => Math.floor(Math.random() * 6) + 1);
         d.forEach((v, i) => document.getElementById('d' + (i + 1)).innerText = v);
@@ -118,3 +126,4 @@
 </script>
 </body>
 </html>
+
