@@ -2,46 +2,21 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Ultimate Thai Hi-Lo Mega VIP (Full Board)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Hi-Lo Mega VIP (Full Board)</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #f1c40f; --table-green: #1b5e20; --lightning: #00d4ff; }
         body { background: #000; color: white; font-family: 'Kanit', sans-serif; margin: 0; display: flex; justify-content: center; }
-        
-        .casino-container { width: 1180px; display: flex; flex-direction: column; align-items: center; padding: 10px; }
-        
-        .live-dealer { 
-            width: 100%; height: 160px; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1596743444223-9366453982f6?q=80&w=2070') center/cover;
-            border-radius: 15px 15px 0 0; position: relative; border: 3px solid var(--gold); 
-        }
+        .casino-container { width: 100%; max-width: 1180px; display: flex; flex-direction: column; align-items: center; padding: 10px; }
+        .live-dealer { width: 100%; height: 160px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1596743444223-9366453982f6?q=80&w=2070') center/cover; border-radius: 15px 15px 0 0; position: relative; border: 3px solid var(--gold); }
         .dice-bowl { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 10px; background: rgba(0,0,0,0.7); padding: 12px; border-radius: 50%; border: 2px solid var(--gold); }
-        .die { width: 42px; height: 42px; background: white; color: black; font-size: 28px; line-height: 42px; text-align: center; border-radius: 8px; font-weight: bold; box-shadow: inset 0 0 5px #000; }
-
-        .stats-panel { width: 100%; background: #111; padding: 8px; box-sizing: border-box; display: flex; overflow-x: auto; gap: 8px; border: 2px solid #333; border-top: none; min-height: 60px; }
-        .stat-item { min-width: 45px; text-align: center; font-size: 10px; background: #222; padding: 5px; border-radius: 4px; border: 1px solid #444; }
-        
-        .betting-grid { 
-            display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; width: 100%; 
-            background: var(--table-green); padding: 8px; border: 5px solid #4d2c12; box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
-        }
-        .bet-box { 
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
-            padding: 6px 2px; text-align: center; cursor: pointer; transition: 0.1s; min-height: 45px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
-        }
-        .bet-box:hover { background: rgba(255,255,255,0.1); }
-        .bet-box.active { background: rgba(241, 196, 15, 0.3); border: 1px solid var(--gold); }
-        
-        .section-label { grid-column: span 6; background: rgba(0,0,0,0.5); font-size: 10px; padding: 3px; color: var(--gold); font-weight: bold; text-align: center; letter-spacing: 1px; margin-top: 3px; }
-        .multiplier { color: var(--lightning); font-weight: 800; font-size: 9px; margin-top: 2px; }
-        .chip-amount { position: absolute; top: -5px; right: -2px; background: #ff0000; color: white; padding: 1px 5px; border-radius: 10px; font-size: 9px; font-weight: bold; border: 1px solid white; z-index: 10; }
-
-        .bottom-panel { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #111; border-radius: 0 0 15px 15px; box-sizing: border-box; }
-        .wallet { font-size: 24px; color: #2ecc71; font-weight: 800; }
-        .chip { width: 42px; height: 42px; border-radius: 50%; border: 2px dashed white; line-height: 38px; text-align: center; cursor: pointer; font-weight: bold; font-size: 12px; }
-        .chip.selected { transform: scale(1.1); border-color: var(--gold); box-shadow: 0 0 12px var(--gold); }
-        .btn-shake { background: linear-gradient(180deg, var(--gold), #b8860b); color: black; border: none; padding: 8px 35px; border-radius: 40px; font-weight: 800; font-size: 18px; cursor: pointer; }
+        .die { width: 42px; height: 42px; background: white; color: black; font-size: 28px; line-height: 42px; text-align: center; border-radius: 8px; font-weight: bold; }
+        .betting-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; width: 100%; background: var(--table-green); padding: 10px; border: 5px solid #4d2c12; box-sizing: border-box; }
+        .bet-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 10px 2px; text-align: center; cursor: pointer; font-size: 12px; }
+        .section-label { grid-column: span 6; background: rgba(0,0,0,0.5); font-size: 11px; padding: 5px; color: var(--gold); text-align: center; margin-top: 5px; }
+        .bottom-panel { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #111; border-radius: 0 0 15px 15px; box-sizing: border-box; border: 2px solid var(--gold); border-top: none; }
+        .btn-shake { background: linear-gradient(180deg, var(--gold), #b8860b); color: black; border: none; padding: 10px 35px; border-radius: 40px; font-weight: 800; font-size: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -51,195 +26,39 @@
         <div class="dice-bowl"><div class="die" id="d1">?</div><div class="die" id="d2">?</div><div class="die" id="d3">?</div></div>
     </div>
 
-    <div class="stats-panel" id="statsList">
-        <div style="color:#666; font-size:12px; padding:15px; width:100%; text-align:center;">--- à¸¢à¸´à¸à¸à¸µà¸à¹à¸­à¸à¸£à¸±à¸à¸ªà¸¹à¹à¹à¸à¹à¸°à¹à¸®à¹à¸¥ VIP ---</div>
-    </div>
-
     <div class="betting-grid">
-        <div class="bet-box" style="grid-column: span 2" onclick="setBet('LOW', this)"><b>à¸à¹à¸³ (3-10)</b><div class="multiplier" id="m-LOW">x1</div></div>
-        <div class="bet-box" style="grid-column: span 2" onclick="setBet('HI-LO-11', this)" style="background: rgba(139,0,0,0.5);">
-            <b style="color:var(--gold)">11 à¹à¸®à¹à¸¥</b><div class="multiplier" id="m-HI-LO-11">x7</div>
-        </div>
-        <div class="bet-box" style="grid-column: span 2" onclick="setBet('HIGH', this)"><b>à¸ªà¸¹à¸ (12-18)</b><div class="multiplier" id="m-HIGH">x1</div></div>
+        <div class="bet-box" style="grid-column: span 2" onclick="bet('ต่ำ')"><b>ต่ำ (3-10)</b></div>
+        <div class="bet-box" style="grid-column: span 2; background: rgba(139,0,0,0.5);" onclick="bet('11 ไฮโล')"><b style="color:var(--gold)">11 ไฮโล</b></div>
+        <div class="bet-box" style="grid-column: span 2" onclick="bet('สูง')"><b>สูง (12-18)</b></div>
 
-        <div class="section-label">à¹à¸à¹à¸¡à¸£à¸§à¸¡ (SUM)</div>
-        <div class="bet-box" onclick="setBet('S3', this)">3 <div class="multiplier" id="m-S3">x150</div></div>
-        <div class="bet-box" onclick="setBet('S4', this)">4 <div class="multiplier" id="m-S4">x60</div></div>
-        <div class="bet-box" onclick="setBet('S5', this)">5 <div class="multiplier" id="m-S5">x30</div></div>
-        <div class="bet-box" onclick="setBet('S6', this)">6 <div class="multiplier" id="m-S6">x18</div></div>
-        <div class="bet-box" onclick="setBet('S7', this)">7 <div class="multiplier" id="m-S7">x12</div></div>
-        <div class="bet-box" onclick="setBet('S8', this)">8 <div class="multiplier" id="m-S8">x8</div></div>
-        <div class="bet-box" onclick="setBet('S9', this)">9 <div class="multiplier" id="m-S9">x7</div></div>
-        <div class="bet-box" onclick="setBet('S10', this)">10 <div class="multiplier" id="m-S10">x6</div></div>
-        <div class="bet-box" onclick="setBet('S12', this)">12 <div class="multiplier" id="m-S12">x6</div></div>
-        <div class="bet-box" onclick="setBet('S13', this)">13 <div class="multiplier" id="m-S13">x8</div></div>
-        <div class="bet-box" onclick="setBet('S14', this)">14 <div class="multiplier" id="m-S14">x12</div></div>
-        <div class="bet-box" onclick="setBet('S15', this)">15 <div class="multiplier" id="m-S15">x18</div></div>
-        <div class="bet-box" onclick="setBet('S16', this)">16 <div class="multiplier" id="m-S16">x30</div></div>
-        <div class="bet-box" onclick="setBet('S17', this)">17 <div class="multiplier" id="m-S17">x60</div></div>
-        <div class="bet-box" onclick="setBet('S18', this)">18 <div class="multiplier" id="m-S18">x150</div></div>
+        <div class="section-label">แต้มรวม (SUM)</div>
+        <div class="bet-box" onclick="bet('3')">3</div><div class="bet-box" onclick="bet('4')">4</div><div class="bet-box" onclick="bet('5')">5</div>
+        <div class="bet-box" onclick="bet('6')">6</div><div class="bet-box" onclick="bet('7')">7</div><div class="bet-box" onclick="bet('8')">8</div>
 
-        <div class="section-label">à¸à¸­à¸à¹à¸à¸à¸²à¸°à¹à¸¥à¸ (SPECIFIC TRIPLE)</div>
-        <div class="bet-box" onclick="setBet('T1', this)">à¸à¸­à¸ 1<div class="multiplier" id="m-T1">x150</div></div>
-        <div class="bet-box" onclick="setBet('T2', this)">à¸à¸­à¸ 2<div class="multiplier" id="m-T2">x150</div></div>
-        <div class="bet-box" onclick="setBet('T3', this)">à¸à¸­à¸ 3<div class="multiplier" id="m-T3">x150</div></div>
-        <div class="bet-box" onclick="setBet('T4', this)">à¸à¸­à¸ 4<div class="multiplier" id="m-T4">x150</div></div>
-        <div class="bet-box" onclick="setBet('T5', this)">à¸à¸­à¸ 5<div class="multiplier" id="m-T5">x150</div></div>
-        <div class="bet-box" onclick="setBet('T6', this)">à¸à¸­à¸ 6<div class="multiplier" id="m-T6">x150</div></div>
-
-        <div class="section-label">à¹à¸à¹à¸à¹à¸¥à¸ (ANY ONE)</div>
-        <div class="bet-box" onclick="setBet('1', this)">1<div class="multiplier" id="m-1">x1</div></div>
-        <div class="bet-box" onclick="setBet('2', this)">2<div class="multiplier" id="m-2">x1</div></div>
-        <div class="bet-box" onclick="setBet('3', this)">3<div class="multiplier" id="m-3">x1</div></div>
-        <div class="bet-box" onclick="setBet('4', this)">4<div class="multiplier" id="m-4">x1</div></div>
-        <div class="bet-box" onclick="setBet('5', this)">5<div class="multiplier" id="m-5">x1</div></div>
-        <div class="bet-box" onclick="setBet('6', this)">6<div class="multiplier" id="m-6">x1</div></div>
-
-        <div class="section-label">à¹à¸à¹à¸ (COMBINATIONS)</div>
-        <div class="bet-box" onclick="setBet('C1-2', this)">1-2<div class="multiplier" id="m-C1-2">x5</div></div>
-        <div class="bet-box" onclick="setBet('C1-3', this)">1-3<div class="multiplier" id="m-C1-3">x5</div></div>
-        <div class="bet-box" onclick="setBet('C1-4', this)">1-4<div class="multiplier" id="m-C1-4">x5</div></div>
-        <div class="bet-box" onclick="setBet('C1-5', this)">1-5<div class="multiplier" id="m-C1-5">x5</div></div>
-        <div class="bet-box" onclick="setBet('C1-6', this)">1-6<div class="multiplier" id="m-C1-6">x5</div></div>
-        <div class="bet-box" onclick="setBet('C2-3', this)">2-3<div class="multiplier" id="m-C2-3">x5</div></div>
-        <div class="bet-box" onclick="setBet('C2-4', this)">2-4<div class="multiplier" id="m-C2-4">x5</div></div>
-        <div class="bet-box" onclick="setBet('C2-5', this)">2-5<div class="multiplier" id="m-C2-5">x5</div></div>
-        <div class="bet-box" onclick="setBet('C2-6', this)">2-6<div class="multiplier" id="m-C2-6">x5</div></div>
-        <div class="bet-box" onclick="setBet('C3-4', this)">3-4<div class="multiplier" id="m-C3-4">x5</div></div>
-        <div class="bet-box" onclick="setBet('C3-5', this)">3-5<div class="multiplier" id="m-C3-5">x5</div></div>
-        <div class="bet-box" onclick="setBet('C3-6', this)">3-6<div class="multiplier" id="m-C3-6">x5</div></div>
-        <div class="bet-box" onclick="setBet('C4-5', this)">4-5<div class="multiplier" id="m-C4-5">x5</div></div>
-        <div class="bet-box" onclick="setBet('C4-6', this)">4-6<div class="multiplier" id="m-C4-6">x5</div></div>
-        <div class="bet-box" onclick="setBet('C5-6', this)">5-6<div class="multiplier" id="m-C5-6">x5</div></div>
+        <div class="section-label">เต็งเลข</div>
+        <div class="bet-box" onclick="bet('1')">1</div><div class="bet-box" onclick="bet('2')">2</div><div class="bet-box" onclick="bet('3')">3</div>
+        <div class="bet-box" onclick="bet('4')">4</div><div class="bet-box" onclick="bet('5')">5</div><div class="bet-box" onclick="bet('6')">6</div>
     </div>
 
     <div class="bottom-panel">
-        <div class="wallet">à¸¿ <span id="balance">1000</span></div>
-        <div class="chip-selector">
-            <div class="chip" style="background:#3498db" onclick="selectChip(10, this)">10</div>
-            <div class="chip" style="background:#e67e22" onclick="selectChip(50, this)">50</div>
-            <div class="chip selected" style="background:#9b59b6" onclick="selectChip(100, this)">100</div>
-            <div class="chip" style="background:#c0392b" onclick="selectChip(500, this)">500</div>
-        </div>
-        <button class="btn-shake" onclick="shake()">à¹à¸à¸¢à¹à¸²!</button>
+        <div id="balance" style="color:#2ecc71; font-size:22px; font-weight:bold;">เงินทุน: 1,000</div>
+        <button class="btn-shake" onclick="shake()">เขย่าลูกเต๋า</button>
     </div>
 </div>
 
 <script>
-    let balance = 1000;
-    let selectedValue = 100;
-    let myBets = {};
-    let multipliers = {};
-    let historyData = [];
-
-    function selectChip(val, el) {
-        selectedValue = val;
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
-        el.classList.add('selected');
-    }
-
-    function setBet(type, el) {
-        if(balance < selectedValue) return alert("à¹à¸à¸´à¸à¹à¸¡à¹à¸à¸­!");
-        balance -= selectedValue;
-        myBets[type] = (myBets[type] || 0) + selectedValue;
-        document.getElementById('balance').innerText = balance.toLocaleString();
-
-        let chip = el.querySelector('.chip-amount');
-        if(!chip) {
-            chip = document.createElement('div');
-            chip.className = 'chip-amount';
-            el.appendChild(chip);
-        }
-        chip.innerText = myBets[type].toLocaleString();
-        el.classList.add('active');
-    }
-
     function shake() {
-        if(Object.keys(myBets).length === 0) return alert("à¸§à¸²à¸à¹à¸à¸´à¸¡à¸à¸±à¸à¸à¹à¸­à¸à¸à¸£à¸±à¸");
-        
-        // à¸ªà¸¸à¹à¸¡à¸à¸±à¸§à¸à¸¹à¸ Lightning (à¸¡à¸µà¹à¸­à¸à¸²à¸ª 10% à¸à¸µà¹à¸à¸°à¸à¸²à¸)
-        document.querySelectorAll('.multiplier').forEach(m => {
-            const id = m.id.replace('m-', '');
-            let baseValue = parseInt(m.innerText.replace('x','').replace('â¡ ',''));
-            if (isNaN(baseValue)) baseValue = 1;
-            
-            if(Math.random() < 0.10) {
-                let boost = [2, 3][Math.floor(Math.random()*2)];
-                multipliers[id] = baseValue * boost;
-                m.innerText = 'â¡ x' + multipliers[id];
-                m.style.color = '#fff';
-            } else {
-                multipliers[id] = baseValue;
-                m.innerText = 'x' + baseValue;
-                m.style.color = 'var(--lightning)';
-            }
-        });
-
-        let count = 0;
-        const roll = setInterval(() => {
-            document.querySelectorAll('.die').forEach(d => d.innerText = Math.floor(Math.random()*6)+1);
-            if(++count > 15) {
-                clearInterval(roll);
-                result();
-            }
-        }, 60);
+        const d1 = Math.floor(Math.random() * 6) + 1;
+        const d2 = Math.floor(Math.random() * 6) + 1;
+        const d3 = Math.floor(Math.random() * 6) + 1;
+        document.getElementById('d1').innerText = d1;
+        document.getElementById('d2').innerText = d2;
+        document.getElementById('d3').innerText = d3;
+        const sum = d1 + d2 + d3;
+        let res = (sum === 11) ? "11 ไฮโล!" : (sum > 11 ? "สูง" : "ต่ำ");
+        setTimeout(() => { alert("ผลคือ: " + sum + " แต้ม (" + res + ")"); }, 100);
     }
-
-    function result() {
-        const d = [Math.floor(Math.random()*6)+1, Math.floor(Math.random()*6)+1, Math.floor(Math.random()*6)+1];
-        const sum = d[0] + d[1] + d[2];
-        document.querySelectorAll('.die').forEach((v, i) => v.innerText = d[i]);
-
-        let resultType = (sum === 11) ? "11" : (sum < 11 ? "à¸à¹à¸³" : "à¸ªà¸¹à¸");
-        updateHistory(d, sum, resultType);
-
-        let winTotal = 0;
-        for(let key in myBets) {
-            let won = false;
-            let m = multipliers[key] || 1;
-
-            if(key === 'LOW' && sum < 11) won = true;
-            if(key === 'HIGH' && sum > 11) won = true;
-            if(key === 'HI-LO-11' && sum === 11) won = true;
-            if(key.startsWith('S') && parseInt(key.slice(1)) === sum) won = true;
-            
-            // à¹à¸à¹à¸à¸à¸­à¸à¹à¸à¸à¸²à¸°à¹à¸¥à¸ (à¹à¸à¹à¸ T1 à¸à¸·à¸­ 1,1,1)
-            if(key.startsWith('T') && d[0] === d[1] && d[1] === d[2] && d[0] === parseInt(key.slice(1))) won = true;
-            
-            if(!isNaN(key) && d.includes(parseInt(key))) {
-                won = true;
-                m = m * d.filter(x => x === parseInt(key)).length; 
-            }
-            if(key.startsWith('C')) {
-                const pairs = key.slice(1).split('-').map(Number);
-                if(d.includes(pairs[0]) && d.includes(pairs[1])) won = true;
-            }
-
-            if(won) winTotal += myBets[key] + (myBets[key] * m);
-        }
-
-        if(winTotal > 0) balance += winTotal;
-
-        myBets = {};
-        document.getElementById('balance').innerText = balance.toLocaleString();
-        document.querySelectorAll('.bet-box').forEach(b => {
-            b.classList.remove('active');
-            if(b.querySelector('.chip-amount')) b.querySelector('.chip-amount').remove();
-        });
-    }
-
-    function updateHistory(d, sum, type) {
-        historyData.unshift({d, sum, type});
-        if(historyData.length > 20) historyData.pop();
-        const list = document.getElementById('statsList');
-        list.innerHTML = historyData.map(h => `
-            <div class="stat-item">
-                <div style="font-weight:bold; color:${h.type==='11'?'#ff4757':(h.type==='à¸à¹à¸³'?'#1e90ff':'#ffa502')}">${h.type}</div>
-                <div style="font-size:10px;">${h.sum} à¹à¸à¹à¸¡</div>
-                <div style="font-size:9px; color:#888;">${h.d.join(',')}</div>
-            </div>
-        `).join('');
-    }
+    function bet(type) { alert("คุณเลือก: " + type); }
 </script>
 </body>
 </html>
